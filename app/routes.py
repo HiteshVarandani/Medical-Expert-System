@@ -62,6 +62,6 @@ def predict():
         
         d = dis_pred_prob.to_dict('split')
         d = dict((i,d[i]) for i in d.keys() if i!='index')
-	d["dis_sym"] = dict((i, get_sym(dis_sym, i).tolist()) for i in d["columns"])
+        d["dis_sym"] = dict((i, get_sym(dis_sym, i).tolist()) for i in d["columns"])
 
     return jsonify(d)

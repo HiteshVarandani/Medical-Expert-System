@@ -54,16 +54,7 @@ $(document).ready(function () {
                     scrollTop: $('.unit').offset().top
                 }, 800);
 
-                $('#myTable').DataTable({
-                    //"iDisplayLength": 25,
-                    "bDestroy": true,
-                    "sDom": 'R<"H"lfr>t<"F"ip>',
-                    "bJQueryUI": true,
-                    "sPaginationType": "full_numbers",
-                    "bAutoWidth": false,
-                    "sScrollY": 550,
-                    "bScrollCollapse": true
-                });
+                $('#myTable').DataTable({});
                 //$('#myTable_wrapper').attr('style','height: 400px; overflow-y: auto');
                 $('tbody, thead').attr('style', '')
                 $('input[type=button]').click(function () {
