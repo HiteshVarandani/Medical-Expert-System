@@ -7,13 +7,17 @@ from app import app
 
 from flask import render_template, request, redirect, url_for, session, jsonify
 
+def get_sym(data, s):
+    x = pd.Series((data[data["Disease_name"]==s].values==1)[0], index=data.columns)
+    return data.loc[data[data["Disease_name"]==s].index, x].columns
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index", methods=["GET", "POST"])
 def index():
 	# Symptoms
     dis_sym = pd.read_csv('data/Training.csv')
-    cols = dis_sym.columns[1:]
+    cols = dis_sym.columns[1:].tolist()
+    cols = json.dumps(cols)
      
     return render_template('index.html', cols = cols)
 
@@ -58,5 +62,6 @@ def predict():
         
         d = dis_pred_prob.to_dict('split')
         d = dict((i,d[i]) for i in d.keys() if i!='index')
-        
+	d["dis_sym"] = dict((i, get_sym(dis_sym, i).tolist()) for i in d["columns"])
+
     return jsonify(d)
