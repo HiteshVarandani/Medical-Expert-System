@@ -1,1 +1,1 @@
-set FLASK_APP=flaskapp.py
+FLASK_APP=flaskapp.py
