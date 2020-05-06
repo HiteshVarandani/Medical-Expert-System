@@ -56,7 +56,8 @@ def predict():
         sample_in = np.array(sample).reshape(1,len(sample))
 
         dis_pred_prob = pd.DataFrame(clf.predict_proba(sample_in), columns=clf.classes_)
-        dis_pred_prob = dis_pred_prob[dis_pred_prob>0.0].dropna(axis=1)
+        dis_pred_prob = dis_pred_prob[dis_pred_prob>max(dis_pred_prob.values[0])/2].dropna(axis=1)
+
         dis_pred_prob = dis_pred_prob.sort_values(axis=1, by= 0, ascending= False)
         
         
