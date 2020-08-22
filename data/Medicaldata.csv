@@ -1,0 +1,16 @@
+﻿Disease_name,Treatement,Laboratory Tests
+Dengue,"Oral Fluids, ORS, paracetamol","COMPLETE BLOOD COUNT, RENAL FUNCTION TEST, LIVER FUNCTION TEST, NS1 antigen testing"
+Typhoid,"Antibiotic(3rd Gen Cephlosporin), paracetamol, Dietary improvement","COMPLETE BLOOD COUNT, RENAL FUNCTION TEST, LIVER FUNCTION TEST, typhidot, blood & stool testing"
+malaria,"Hydroxy Chloroquine, Primaquine, Paracetamol","COMPLETE BLOOD COUNT, RENAL FUNCTION TEST, LIVER FUNCTION TEST, Blood smear, RDT*, QBC*"
+Cholera,"Antibiotic, ORS, Fluids, Paracetamol","Stool Examination, Blood Culture and Sensitivity"
+diabetes,"Type 1 Insulin, Type 2 OralHypoGlycemics Drugs(Categrized on patients)","Blood Sugar(fasting, Post Prandial), RENAL FUNCTION TEST, Eye Examination"
+cataract,"Spectacles, Vision Correction","Visual Acuity, Slit Lamp Examination, Biometry"
+cystitis,"Antibiotic, paracetamol, Fluids","Urine Test, Blood Test"
+Raynaud,"Avoid Exposure to Cold, Vasodilator drugs",Doppler USD(ultrasound)
+Rickets,"Vitamin D injections, Calciums","COMPLETE BLOOD COUNT, Calcium Level, Phosphate Level in Blood, X-Ray (Wrist, Knee, Skull, Chest)"
+Tuberculosis,"Isoniazid(H), rifampicin(R), pyrazinamide(Z), streptomycin(S), ethambutol(E), thioacetazone(T)","COMPLETE BLOOD COUNT, RENAL FUNCTION TEST, LIVER FUNCTION TEST, Montoux, Sputum test, Chest X- Ray, Lesser Cost // CBNET, Mid Cost // Bactec, TBGold    Most Cost"
+epilepsy,Antiepileptics,"EEG, RENAL FUNCTION TEST, LIVER FUNCTION TEST, CTHead"
+UTI,"Antibiotics, Fluids","COMPLETE BLOOD COUNT, USD()"
+gastrooesophageal reflux disease,"Small meals, PPI (Proton Pump Inhibitor-Omeprazole)",Endoscopy
+hepatitis B,"Dietary Management, Antivirals (Tenofovir)","COMPLETE BLOOD COUNT, LIVER FUNCTION TEST, RENAL FUNCTION TEST, USD Abdomen, Serum Antigen-Antibody Level"
+Tinea Corporis,Fluconazone,"KOH mount, woodlamp Examination"

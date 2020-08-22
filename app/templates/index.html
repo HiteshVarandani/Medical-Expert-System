@@ -8,16 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Disease diagnosis using symptoms in a Machine Learning flask web API">
-    <!--meta name="author" content="Nicolas Bize"-->
+
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='image/favicon.ico') }}">
 
-    <title>MagicSuggest - Home</title>
     <link href="{{ url_for('static', filename='docs/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='magicSuggest/css/magicsuggest.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='magicSuggest/css/custom.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='dataTables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <!--link href="{{ url_for('static', filename='dataTables/css/dataTables.semanticui.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='dataTables/css/semantic.min.css') }}" rel="stylesheet"-->
+
     
     <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -26,12 +24,21 @@
     <script type="text/javascript" src="{{url_for('static', filename='magicSuggest/js/magicsuggest-min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='dataTables/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/myjs.js')}}"></script>
-    <!--script type="text/javascript" src="{{ url_for('static', filename='dataTables/js/dataTables.semanticui.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='dataTables/js/semantic.min.js') }}"></script-->
+
+
     
   </head>
 
     <body class="cover" style>
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p></p>
+	  </div>
+
+	</div>
       <div class="site-wrapper">
       	
         <div class="site-wrapper-inner">
@@ -41,7 +48,7 @@
                 <h1 class="cover-heading shadow centered">Diagnosis System</h1>
                 <p class="lead shadow centered">Select one or more symptoms here..</p>
                 <p class="lead">
-              <!-- <div id="ms1" class="form-control" value='["Chicago","Houston"]'></div> -->
+
                   </p><div class="ms-ctn form-control " style="" id="ms1"><span class="ms-helper" style="display: none;"></span><div class="ms-sel-ctn"><input type="text" class="" placeholder="Type or click here" style="width: 616px;"><div style="display: none;"></div></div><div class="ms-trigger"><div class="ms-trigger-ico"></div></div></div>
                   <button id="sub" type="submit" class="button search" style="min-width: 150px;font-size: 18px; margin-top: 5px; padding: 6px 50px 6px 6px;">Search
                   </button>
@@ -49,7 +56,6 @@
               </div>
               <div class="mastfoot" id="hide">
                 <div class="inner">
-                  <p id="hidden">{{ cols|safe }}</p>
               	</div>
               </div>
             <p></p>
@@ -62,13 +68,14 @@
 
       <script type="text/javascript">
           $(function() {
-            var data = $('#hidden').html();
+            var data = JSON.stringify({{ cols|safe }})
             var x = document.getElementById("hide");
           if (x.style.display === "none") {
             x.style.display = "block";
           } else {
             x.style.display = "none";
           }
+		
           data = JSON.parse(data);
           
             const ele = $('#ms1').magicSuggest({
@@ -76,26 +83,15 @@
               maxDropHeight: 200,
               allowFreeEntries: false,
               maxSelection: null,
-	      expandOnFocus: true,
 	      toggleOnClick: true,
 
             });
             
-            /*jQuery(ele).on('selectionchange', function(e,m) {
-              const data = this.getSelection();
-
-              if(data.length == 0) {
-                console.log(1);
-              }
-            })*/
 
             $('.cover-container').attr('style','border-radius: 5px; min-width: 350px; width: 850px; max-width: 900px; height: 500px; box-shadow: 0 0 20px #1f5a60; background: WHITE; background-size: 850px 500px; background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url({{ url_for("static", filename="image/hlthcare.jpg") }})');
             $('.inner').attr('style', 'height: 300px; padding-top: 80px');
-            $('body').attr('style', 'background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url({{ url_for("static", filename="image/med_wlppr.jpg") }}); background-repeat: no-repeat; background-attachment: fixed;');
-            //$('.ms-sel-ctn input').prop('required',true);
-
-            //var val = $('#write').text(data);
-            //val.append('<p>'+data+'</p>');
+            $('body').attr('style', 'background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url({{ url_for("static", filename="image/med_wlppr.jpg") }}); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;');
+            
           });
 
         var _gaq = _gaq || [];

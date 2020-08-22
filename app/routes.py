@@ -66,3 +66,26 @@ def predict():
         d["dis_sym"] = dict((i, get_sym(dis_sym, i).tolist()) for i in d["columns"])
 
     return jsonify(d)
+
+@app.route("/differ/<dis_1>/<dis_2>",methods=['POST'])
+def differ(dis_1,dis_2):
+    
+    data = pd.read_csv('data/Training.csv')
+    dis_sym_1 = set(get_sym(data, dis_1).tolist())
+    dis_sym_2 = set(get_sym(data, dis_2).tolist())
+    diff = dis_sym_1.difference(dis_sym_2)
+    diff = json.dumps(list(diff))
+    return jsonify(diff)
+
+@app.route("/invest/<dis_1>", methods=["POST"])
+def invest(dis_1):
+    if request.method == "POST":
+        med_data = pd.read_csv('data/Medicaldata.csv')
+        x = request.get_data().decode("utf-8")
+        if dis_1 in med_data["Disease_name"].to_list():
+            value = med_data[med_data["Disease_name"]==dis_1][x].values[0]
+        else:
+            value = 'No data Found'
+        x = json.dumps(value)
+    return jsonify(value)
+    
